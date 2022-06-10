@@ -1,8 +1,6 @@
 # provider.tf
 provider "aws" {
-  profile                 = var.profile
-  shared_credentials_file = "~/.aws/credentials"
-  region                  = us-east-2
-  
+  region  = "us-east-2"
+  profile = "default"
+  version = "~> 2.66.0"  
 }
-
