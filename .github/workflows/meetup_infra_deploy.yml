@@ -41,14 +41,7 @@ jobs:
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}  
 
 
-    #- name: Pipeline Chain API Call
-      #uses: peter-evans/repository-dispatch@v2
-      #with:
-        #token: ${{ secrets.GITHUB_TOKEN }}
-        #repository: username/my-repo
-        #event-type: from-infra-repo
-        #client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'  
-
+    
 
 
    
