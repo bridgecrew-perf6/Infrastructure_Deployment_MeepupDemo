@@ -1,4 +1,4 @@
-ame: Deploy demo_Infra
+name: Deploy Infrastructure Demo
 
 on:
   push:
@@ -20,4 +20,28 @@ jobs:
         echo "Creating Bucket: ${{ secrets.TF_STATE_BUCKET }}"
         aws s3api create-bucket --bucket {{ secrets.TF_STATE_BUCKET }} --region {{ secrets.AWS_DEFAULT_REGION }} --create-bucket-configuration LocationConstraint={{ secrets.AWS_DEFAULT_REGION }}|| true
 
+    - name: Terraform Init
+      uses: hashicorp/terraform-github-actions/init@v0.4.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
+        TF_ACTION_WORKING_DIR: 'terraform'
+        AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+    - name: Terraform Validate
+      uses: hashicorp/terraform-github-actions/validate@v0.3.7
     
+    
+    - name: Terraform Apply
+      uses: hashicorp/terraform-github-actions/apply@v0.4.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
+        TF_ACTION_WORKING_DIR: 'terraform'
+        AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}  
+
+
+    
+
+
+   
