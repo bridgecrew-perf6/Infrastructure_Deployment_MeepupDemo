@@ -48,8 +48,10 @@ jobs:
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     
     - name: Terraform destroy
-      run: |
-        pwd
+      uses: dflook/terraform-destroy@v1
+      with:
+        path: '/home/runner/work/Infrastructure_Deployment_MeepupDemo/Infrastructure_Deployment_MeepupDemo'
+        workspace: 'terraform'
 
 
 
