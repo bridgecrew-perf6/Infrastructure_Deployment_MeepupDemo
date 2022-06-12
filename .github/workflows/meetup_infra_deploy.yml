@@ -47,14 +47,13 @@ jobs:
         AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-    - name: Checkout
-      uses: actions/checkout@v2
+  
     
     - name: Terraform destroy
       uses: dflook/terraform-destroy@v1
       with:
         path: '/home/runner/work/Infrastructure_Deployment_MeepupDemo/Infrastructure_Deployment_MeepupDemo'
-        workspace: 'terraform'
+        workspace: '/home/runner/work/Infrastructure_Deployment_MeepupDemo/Infrastructure_Deployment_MeepupDemo/terraform'
 
 
 
