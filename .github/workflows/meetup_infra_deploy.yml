@@ -27,6 +27,11 @@ jobs:
         echo "Creating Bucket: ${{ secrets.TF_STATE_BUCKET }}"
         aws s3api create-bucket --bucket ${{ secrets.TF_STATE_BUCKET }} --region ${{ secrets.AWS_DEFAULT_REGION }} --create-bucket-configuration LocationConstraint=${{ secrets.AWS_DEFAULT_REGION }}|| true
         aws s3api create-bucket --bucket codepipelinepractice1 --region ${{ secrets.AWS_DEFAULT_REGION }} --create-bucket-configuration LocationConstraint=${{ secrets.AWS_DEFAULT_REGION }}|| true
+    
+    - name: Terraform Reconfigure
+      run: |
+        terraform init -reconfigure /home/runner/work/Infrastructure_Deployment_MeepupDemo/Infrastructure_Deployment_MeepupDemo/terraform
+
     - name: Terraform Init
       uses: hashicorp/terraform-github-actions/init@v0.4.0
       env:
