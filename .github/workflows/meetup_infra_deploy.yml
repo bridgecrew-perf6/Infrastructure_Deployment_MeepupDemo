@@ -30,7 +30,8 @@ jobs:
     
     - name: Terraform Reconfigure
       run: |
-        terraform init -reconfigure /home/runner/work/Infrastructure_Deployment_MeepupDemo/Infrastructure_Deployment_MeepupDemo/terraform
+        cd /home/runner/work/Infrastructure_Deployment_MeepupDemo/Infrastructure_Deployment_MeepupDemo/terraform
+        terraform init -reconfigure
 
     - name: Terraform Init
       uses: hashicorp/terraform-github-actions/init@v0.4.0
