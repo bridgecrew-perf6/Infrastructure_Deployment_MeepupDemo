@@ -46,6 +46,9 @@ jobs:
         TF_ACTION_WORKING_DIR: 'terraform'
         AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+    - name: Checkout
+      uses: actions/checkout@v2
     
     - name: Terraform destroy
       uses: dflook/terraform-destroy@v1
