@@ -37,7 +37,7 @@ jobs:
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     
     - name: Terraform Validate
-      uses: hashicorp/setup-terraformvalidate@v0.4.0
+      uses: hashicorp/setup-terraformvalidate@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
         TF_ACTION_WORKING_DIR: 'terraform'
@@ -63,6 +63,7 @@ jobs:
 
 
     - name: Terraform destroy
+      
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: |
         cd /home/runner/work/Infrastructure_Deployment_MeepupDemo/Infrastructure_Deployment_MeepupDemo/terraform
