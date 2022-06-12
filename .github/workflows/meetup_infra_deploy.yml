@@ -60,7 +60,8 @@ jobs:
     - name: Terraform destroy
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: |
-        pwd
+        cd /home/runner/work/Infrastructure_Deployment_MeepupDemo/Infrastructure_Deployment_MeepupDemo/terraform
+        terraform destroy
         
 
 
