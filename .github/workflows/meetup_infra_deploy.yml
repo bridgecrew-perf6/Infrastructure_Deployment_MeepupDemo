@@ -48,7 +48,6 @@ jobs:
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     
     - name: Terraform destroy
-      uses: dflook/terraform-destroy@v1
       run: |
         pwd
 
